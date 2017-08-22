@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "outDir": "build",
+    "jsx": "react-native",
+    "target": "es6",
+    "moduleResolution": "node",
+    "allowJs": true
+  },
+  "files": [
+    "src/index.tsx"
+  ]
+}

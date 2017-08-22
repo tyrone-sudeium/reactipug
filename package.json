@@ -1,0 +1,30 @@
+{
+	"name": "reactipug",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@types/react-native": "^0.47.6",
+		"@types/react-navigation": "^1.0.19",
+		"moment": "^2.18.1",
+		"native-base": "^2.3.1",
+		"react": "16.0.0-alpha.12",
+		"react-native": "0.47.1",
+		"react-navigation": "^1.0.0-beta.11",
+		"react-navigation-props-mapper": "^0.1.0",
+		"typescript": "^2.4.2"
+	},
+	"devDependencies": {
+		"babel-jest": "20.0.3",
+		"babel-preset-react-native": "3.0.0",
+		"jest": "20.0.4",
+		"react-test-renderer": "16.0.0-alpha.12"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
+}
