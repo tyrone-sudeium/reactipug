@@ -55,6 +55,13 @@ export class PugsScreen extends React.Component<Props, PugsScreenState> {
     }).catch(console.error)
   }
 
+  tapPug(pug: PugPost) {
+    this.props.navigation.navigate("pugCard", {
+      pug: pug,
+      pugId: pug.id
+    })
+  }
+
   render(): JSX.Element {
     return (
       <Container>
@@ -72,7 +79,7 @@ export class PugsScreen extends React.Component<Props, PugsScreenState> {
   renderList(): JSX.Element {
     return (
       <List dataArray={this.state.pugs} renderRow={(data: PugPost) =>
-        <ListItem>
+        <ListItem onPress={() => this.tapPug(data)}>
           <Thumbnail square size={80} source={{uri: data.url}}/>
           <Body>
             <Text>{data.title}</Text>

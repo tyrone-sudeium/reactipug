@@ -25,9 +25,9 @@ export const AppNavigator = (initialRoute: string, initialRouteParams: Object) =
     initialRouteName: initialRoute,
     initialRouteParams: initialRouteParams,
     navigationOptions: ({ navigation, props }: any)  => ({
-      headerTintColor: "#4AA3DF",
+      headerTintColor: "white",
       headerStyle: {
-        backgroundColor: "white"
+        backgroundColor: "#8239AB"
       }
     })
   })

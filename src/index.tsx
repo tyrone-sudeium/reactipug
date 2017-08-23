@@ -1,7 +1,10 @@
 import * as React from "react"
 import { AppNavigator } from "./app_navigation"
 import { NavigationState } from "react-navigation"
-import { Settings } from "react-native"
+import { 
+  Settings,
+  StatusBar
+} from "react-native"
 
 function getCurrentRoute(navigationState: NavigationState) {
   if (!navigationState) {
@@ -17,6 +20,10 @@ function getCurrentRoute(navigationState: NavigationState) {
 export const RootNavigator = AppNavigator("home", {})
 
 export class MainApplication extends React.Component<{}, {}> {
+
+  componentWillMount() {
+    StatusBar.setBarStyle("light-content")
+  }
 
   render(): JSX.Element {
     try {
