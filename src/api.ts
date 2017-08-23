@@ -97,6 +97,18 @@ export interface PugPost {
   date: Date
 }
 
+function pugPostFromPostData(postData: Reddit.PostData): PugPost | null {
+  if (postData.url.match(/\.(jpeg|jpg|gif|png|bmp|heif|heic)$/) == null) {
+    return null
+  }
+  let pugPost = (({ id, author, score, domain, url, title, ...other}) => (
+    { id, author, score, domain, url, title, date: new Date(other.created_utc * 1000)}
+  ))(postData) as PugPost
+  // Force HTTPS for ATS. If the site doesn't support HTTPS, then it sucks
+  pugPost.url = pugPost.url.replace("http://", "https://")
+  return pugPost
+}
+
 const PUGS_URL = "https://www.reddit.com/r/pugs.json"
 
 export async function getPugs(pages: number): Promise<PugPost[]> {
@@ -105,11 +117,9 @@ export async function getPugs(pages: number): Promise<PugPost[]> {
   let count = 0
   for (let i = 0; i < pages; i++) {
     let resp = await _getPugs(previous, count)
-    let newPosts = resp.data.children.map((l) => {
-      return (({ id, author, score, domain, url, title, ...other}) => (
-        { id, author, score, domain, url, title, date: new Date(other.created_utc * 1000)}
-      ))(l.data)
-    }) as PugPost[]
+    let newPosts: PugPost[] = resp.data.children
+      .map(l => pugPostFromPostData(l.data))
+      .filter(p => p != null)
     posts = posts.concat(newPosts)
     count = count + resp.data.children.length
     previous = resp
