@@ -82,15 +82,15 @@ export class HomeScreen extends React.Component<NavigationScreenProps<{}>, HomeS
             <Text style={{fontWeight: "bold", paddingHorizontal: 8, paddingVertical: 8}}>Pug pages</Text>
             <PugPageSlider pages={this.state.pugPages} onValueChange={(newVal) => this.setPugPages(newVal)}/>
           </View>
-          <View style={{marginTop: 8, flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
+          <View style={{marginTop: 8, flexDirection: "column"}}>
             <Button iconLeft success 
-              style={{margin: 4}} 
+              style={{margin: 4, alignSelf: "center"}} 
               onPress={() => this.showMePuppers()}
             >
               <Icon active name="paw"/>
               <Text style={{color: "white"}}>Show me the puppers</Text>
             </Button>
-            <Button iconLeft info style={{margin: 4}}>
+            <Button iconLeft info style={{margin: 4, alignSelf: "center"}}>
               <Icon active name="alert"/>
               <Text style={{color: "white"}}>About this silly app</Text>
             </Button>
