@@ -101,7 +101,7 @@ export class HomeScreen extends React.Component<NavigationScreenProps<{}>, HomeS
               onPress={() => this.showMePuppers()}
             >
               <Icon active name="paw"/>
-              <Text style={{color: "white"}}>Show me the puppers</Text>
+              <Text style={{color: "white"}}>Show me puppers</Text>
             </Button>
             <Button iconLeft info style={{margin: 4, alignSelf: "center"}}>
               <Icon active name="alert"/>
